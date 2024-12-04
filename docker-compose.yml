@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft-paper
+    ports:
+      - "25565:25565" # Minecraft のデフォルトポート
+    environment:
+      TYPE: PAPER # Paper サーバーを使用
+      EULA: "TRUE" # EULA の同意
+      MEMORY: 6G # メモリの割り当て（変更可能）
+    volumes:
+      - ./data:/data # ホストの ./data をコンテナの /data にマウント
+    restart: unless-stopped
